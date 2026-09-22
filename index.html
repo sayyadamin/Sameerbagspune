@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sameer Bags - Premium Printed Shopping Bags</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts for Attractive Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+    --primary: #1a3c34;
+    --primary-light: #2a5c50;
+    --accent: #e67e22;
+    --accent-light: #f39c12;
+    --light: #f8f9fa;
+    --white: #ffffff;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
+    --border: #e1e8ed;
+    --radius: 12px;
+    }
+    
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+    background: var(--light);
+    color: var(--text);
+    padding-bottom: 70px;
+    line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+    }
+    header {
+    background: linear-gradient(135deg, #1a3c34 0%, #2a5c50 100%);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    }
+    
+    .logo h1 {
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .logo span {
+    font-size: 0.7rem;
+    display: block;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    }
+    
+    nav a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 5px 0;
+    transition: 0.3s;
+    }
+    
+    nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+    width: 100%;
+    }
+    
+    nav a:hover {
+    color: var(--accent);
+    }
+    
+    .social-links a {
+    color: white;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    display: inline-block;
+    }
+    
+    .social-links a:hover {
+    color: var(--accent);
+    transform: scale(1.2);
+    }
+    .container {
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 0 20px;
+    }
+    
+    .page {
+    display: none;
+    animation: fadeIn 0.5s ease;
+    }
+    
+    .page.active {
+    display: block;
+    }
+    
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .banner-slider {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1920/650;
+    background: #ddd;
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 35px;
+    box-shadow: var(--shadow);
+    position: relative;
+    }
+    
+    .banner-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+    }
+    
+    .banner-slider:hover img {
+    transform: scale(1.02);
+    }
+    .filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: white;
+    padding: 15px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    }
+    
+    .filter-bar h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    }
+    
+    .filter-bar select {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    }
+    
+    .filter-bar select:focus {
+    outline: none;
+    border-color: var(--accent);
+    }
+    
+    .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    }
+    
+    .product-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.03);
+    }
+    
+    .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    }
+    
+    .product-img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    background: #eee;
+    }
+    
+    .product-info {
+    padding: 18px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .product-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    }
+    
+    .product-info p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    flex-grow: 1;
+    line-height: 1.5;
+    }
+    
+    .price {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    display: block;
+    }
+    .btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    font-size: 0.9rem;
+    text-decoration: none;
+    }
+    
+    .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    }
+    .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26,60,52,0.4);
+    }
+    
+    .btn-success {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    }
+    .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39,174,96,0.4);
+    }
+    
+    .btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    }
+    .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231,76,60,0.4);
+    }
+    
+    .btn-warning {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    }
+    .btn-warning:hover {
+    transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+    background: #95a5a6;
+    color: white;
+    }
+    
+    .btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    }
+    .btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+    }
+    .content-box {
+    background: white;
+    padding: 35px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    }
+    
+    .content-box h2 {
+    color: var(--primary);
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    display: inline-block;
+    font-size: 1.8rem;
+    }
+    
+    .contact-info p {
+    margin: 15px 0;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    }
+    
+    .contact-info p:hover {
+    background: #f8f9fa;
+    }
+    
+    .contact-info i {
+    color: var(--accent);
+    width: 25px;
+    font-size: 1.2rem;
+    }
+    
+    .form-group {
+    margin-bottom: 18px;
+    }
+    
+    .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
+    }
+    
+    .form-group textarea {
+    resize: vertical;
+    height: 100px;
+    }
+    
+    .form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    }
+    
+    .form-row .form-group {
+    flex: 1;
+    min-width: 200px;
+    }
+    .login-box {
+    background: white;
+    padding: 45px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 420px;
+    margin: 60px auto;
+    text-align: center;
+    }
+    
+    .login-box h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    }
+    
+    .pass-input {
+    width: 100%;
+    padding: 14px;
+    margin: 20px 0;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    .pass-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    }
+    
+    .error-msg {
+    color: #e74c3c;
+    margin-top: 12px;
+    display: none;
+    font-weight: 500;
+    }
+    
+    .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: white;
+    padding: 20px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    }
+    
+    .admin-header h2 {
+    color: var(--primary);
+    }
+    
+    .admin-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    background: white;
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    }
+    
+    .admin-tabs .tab-btn {
+    padding: 12px 20px;
+    background: #f1f3f5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    color: var(--text-light);
+    }
+    
+    .admin-tabs .tab-btn:hover {
+    background: #e1e8ed;
+    }
+    
+    .admin-tabs .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    box-shadow: 0 4px 12px rgba(26,60,52,0.3);
+    }
+    
+    .admin-tab-content {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.4s;
+    }
+    
+    .admin-tab-content.active {
+    display: block;
+    }
+    
+    .admin-tab-content h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    }
+    
+    .media-preview {
+    margin-top: 12px;
+    max-width: 100%;
+    max-height: 160px;
+    display: none;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    }
+    
+    .admin-list {
+    margin-top: 25px;
+    }
+    
+    .admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    transition: 0.3s;
+    }
+    
+    .admin-item:hover {
+    background: #f8f9fa;
+    }
+    
+    .admin-item:last-child {
+    border-bottom: none;
+    }
+    
+    .admin-item-actions button {
+    margin-left: 8px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    width: auto;
+    border-radius: 6px;
+    }
+    footer {
+        background: linear-gradient(135deg, #1a3c34, #2a5c50);
+        color: white;
+        text-align: center;
+        padding: 18px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 0.85rem;
+        z-index: 999;
+        letter-spacing: 0.5px;
+    }
+    
+    @media (max-width: 768px) {
+        header { flex-direction: column; gap: 12px; padding: 12px 15px; }
+        nav ul { gap: 12px; font-size: 0.85rem; flex-wrap: wrap; justify-content: center; }
+        .banner-slider { aspect-ratio: 16/9; }
+        .form-row { flex-direction: column; gap: 0; }
+        .admin-tabs { flex-direction: column; }
+        .admin-tabs .tab-btn { width: 100%; }
+        .content-box { padding: 20px; }
+        .admin-item { flex-direction: column; gap: 10px; align-items: flex-start; }
+    }
+        </style>
+    </head>
+    <body>
+    <header>
+    <div class="logo">
+    <h1>SAMEER BAGS</h1>
+    <span>Printed Shopping Bags Manufacturer & Printers</span>
+    </div>
+    <nav>
+    <ul>
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('about')">About Us</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a onclick="showPage('admin')">Admin Login</a></li>
+    </ul>
+    </nav>
+    <div class="social-links">
+    <a href="#" id="headerFacebook" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" id="headerInstagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="headerYoutube" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    </header>
+    <div class="container">
+    
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page active">
+    <div class="banner-slider" id="bannerSlider"></div>
+    <div class="filter-bar">
+    <h3>Our Collection</h3>
+    <select id="categoryFilter" onchange="filterProducts()">
+    <option value="All">All Categories</option>
+    <option value="Non Woven">Non Woven</option>
+    <option value="Paper">Paper</option>
+    <option value="Jute">Jute</option>
+    <option value="Cotton">Cotton</option>
+    </select>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    </div>
+    <!-- ABOUT US PAGE -->
+    <div id="page-about" class="page">
+    <div class="content-box">
+    <h2>About Sameer Bags</h2>
+    <div id="aboutContent"></div>
+    </div>
+    </div>
+    
+    <!-- CONTACT PAGE -->
+    <div id="page-contact" class="page">
+    <div class="content-box">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+    <p><i class="fas fa-phone"></i> <span id="contactMobile"></span></p>
+    <p><i class="fab fa-whatsapp"></i> <span id="contactWhatsapp"></span></p>
+    <p><i class="fas fa-envelope"></i> <span id="contactEmail"></span></p>
+    </div>
+    <hr style="margin: 25px 0;">
+    <h3 style="color:var(--primary); margin-bottom:15px;">Send Enquiry</h3>
+    <form onsubmit="submitEnquiry(event)">
+    <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="enqName" required placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+    <label>Phone Number</label>
+    <input type="tel" id="enqPhone" required placeholder="Enter mobile number">
+    </div>
+    <div class="form-group">
+    <label>Message</label>
+    <textarea id="enqMsg" required placeholder="I want to order..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+    </form>
+    </div>
+    </div>
+    <!-- ADMIN PAGE -->
+    <div id="page-admin" class="page">
+    
+    <!-- LOGIN VIEW -->
+    <div id="loginView" class="login-box">
+    <h2>Admin Login</h2>
+    <input type="password" id="adminPass" placeholder="Enter Password" class="pass-input">
+    <button class="btn btn-primary" onclick="checkLogin()">Login</button>
+    <p id="loginError" class="error-msg">Wrong Password!</p>
+    </div>
+    
+    <!-- DASHBOARD -->
+    <div id="adminDashboard" style="display:none;">
+    <div class="admin-header">
+    <h2>Admin Dashboard</h2>
+    <button class="btn btn-danger" style="width:auto; padding:8px 20px;" onclick="logout()">Logout</button>
+    </div>
+    
+    <div class="admin-tabs">
+    <button class="tab-btn active" onclick="showAdminTab('tabProducts', this)">📦 Products</button>
+    <button class="tab-btn" onclick="showAdminTab('tabBanner', this)">🖼️ Banner</button>
+    <button class="tab-btn" onclick="showAdminTab('tabAbout', this)">📝 About Us</button>
+    <button class="tab-btn" onclick="showAdminTab('tabContact', this)">📞 Contact Info</button>
+    <button class="tab-btn" onclick="showAdminTab('tabBackup', this)">💾 Backup</button>
+    </div>
+    <div id="tabProducts" class="admin-tab-content active">
+    <h3>Add / Edit Product</h3>
+    <input type="hidden" id="editId">
+    <div class="form-row">
+    <div class="form-group">
+    <label>Product Name</label>
+    <input type="text" id="pName" placeholder="e.g. Non Woven Bag">
+    </div>
+    <div class="form-group">
+    <label>Price (₹)</label>
+    <input type="number" id="pPrice" placeholder="e.g. 12">
+    </div>
+    <div class="form-group">
+    <label>Category</label>
+    <select id="pCategory">
+    <option value="Non Woven">Non Woven</option>
+    <option value="Paper">Paper</option>
+    <option value="Jute">Jute</option>
+    <option value="Cotton">Cotton</option>
+    </select>
+    </div>
+    </div>
+    <div class="form-group">
+    <label>Description</label>
+    <textarea id="pDesc" placeholder="Product details..."></textarea>
+    </div>
+    <div class="form-row">
+    <div class="form-group">
+    <label>Upload Photo</label>
+    <input type="file" id="pImageUpload" accept="image/*" onchange="previewImage(event)">
+    <img id="imgPreview" class="media-preview">
+    </div>
+    <div class="form-group">
+    <label>Upload Video (Optional)</label>
+    <input type="file" id="pVideoUpload" accept="video/*" onchange="previewVideo(event)">
+    <video id="vidPreview" class="media-preview" controls></video>
+    </div>
+    </div>
+    <button class="btn btn-success" onclick="saveProduct()">Save Product</button>
+    <button class="btn btn-secondary" style="margin-top:10px;" onclick="resetProductForm()">Clear Form</button>
+    <h3 style="margin-top:30px;">Existing Products</h3>
+    <div id="adminProductList" class="admin-list"></div>
+    </div>
+    <!-- TAB 2: BANNER -->
+    <div id="tabBanner" class="admin-tab-content">
+        <h3>Change Home Banner</h3>
+        <div class="form-group">
+            <label>Upload New Banner Image</label>
+            <input type="file" id="bannerUpload" accept="image/*" onchange="previewBanner(event)">
+            <img id="bannerPreview" class="media-preview" style="max-height:200px;">
+        </div>
+        <button class="btn btn-success" onclick="saveBanner()">Update Banner</button>
+    </div>
+    
+    <!-- TAB 3: ABOUT US -->
+    <div id="tabAbout" class="admin-tab-content">
+        <h3>Edit About Us Text</h3>
+        <div class="form-group">
+            <textarea id="aboutTextEdit" style="height:250px;"></textarea>
+        </div>
+        <button class="btn btn-success" onclick="saveAbout()">Save About Us</button>
+    </div>
+    
+    <!-- TAB 4: CONTACT INFO -->
+    <div id="tabContact" class="admin-tab-content">
+        <h3>Edit Contact Information</h3>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="text" id="editMobile" placeholder="+91 9890443942">
+        </div>
+        <div class="form-group">
+            <label>WhatsApp Number (with country code, e.g. 919890443942)</label>
+            <input type="text" id="editWhatsapp" placeholder="919890443942">
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="editEmail" placeholder="info@sameerbags.com">
+        </div>
+        <div class="form-group">
+            <label>Facebook Link</label>
+            <input type="text" id="editFacebook" placeholder="https://facebook.com/...">
+        </div>
+        <div class="form-group">
+            <label>Instagram Link</label>
+            <input type="text" id="editInstagram" placeholder="https://instagram.com/...">
+        </div>
+        <div class="form-group">
+            <label>YouTube Channel Link</label>
+            <input type="text" id="editYoutube" placeholder="https://youtube.com/@...">
+        </div>
+        <button class="btn btn-success" onclick="saveContact()">Save Contact Info</button>
+    </div>
+    
+    <!-- TAB 5: BACKUP -->
+    <div id="tabBackup" class="admin-tab-content">
+        <h3>Backup & Restore Data</h3>
+        <p style="margin-bottom:15px;">Download your website data as a JSON file. You can restore it later.</p>
+        <button class="btn btn-primary" onclick="backupData()"><i class="fas fa-download"></i> Download Backup (JSON)</button>
+        <hr style="margin: 25px 0;">
+        <h4 style="color:var(--primary); margin-bottom:10px;">Restore from Backup</h4>
+        <input type="file" id="restoreFile" accept=".json" style="margin-bottom:10px;">
+        <button class="btn btn-warning" onclick="restoreData()"><i class="fas fa-upload"></i> Restore Data</button>
+        <hr style="margin: 25px 0;">
+        <h4 style="color:#e74c3c; margin-bottom:10px;">Clear All Data</h4>
+        <p style="color:#e74c3c; margin-bottom:10px;">Warning: This will delete all products and settings permanently!</p>
+        <button class="btn btn-danger" onclick="clearAllData()"><i class="fas fa-trash"></i> Clear All Data</button>
+    </div>
+    
+            </div> <!-- End Dashboard -->
+        </div> <!-- End Admin Page -->
+    
+    </div> <!-- End Container -->
+    <footer>
+    <p>&copy; 2024 Sameer Bags. All Rights Reserved. | GST: 27WHPS4878H1ZN</p>
+    </footer>
+    
+    <script>
+    const defaultData = {
+    products: [
+    { id: 1, name: "Non Woven Bag", price: 1, category: "Non Woven", desc: "D Cut Bag, 60 GSM, Virgin Material. Durable & Eco-friendly.", image: "https://via.placeholder.com/300x200/1a3c34/ffffff?text=Non+Woven+Bag", video: "" },
+    { id: 2, name: "PP D-Cut Bag", price: 3.50, category: "Non Woven", desc: "Size: 14x16 inch, Printed, Durable Polypropylene.", image: "https://via.placeholder.com/300x200/e67e22/ffffff?text=PP+D-Cut+Bag", video: "" }
+    ],
+    banner: "https://via.placeholder.com/1920x650/1a3c34/ffffff?text=Sameer+Bags+-+Quality+You+Can+Trust",
+    about: "<p>Sameer Bags is a leading manufacturer and printer of high-quality shopping bags based in Pune, Maharashtra. We specialize in Non-Woven, Paper, Jute, and Cotton bags.</p><br><p>With years of experience, we provide customized printing solutions for businesses of all sizes. Our mission is to provide eco-friendly, durable, and cost-effective packaging solutions to our clients.</p>",
+    contact: {
+    mobile: "+91 9890443942",
+    whatsapp: "919890443942",
+    email: "info@sameerbags.com",
+    facebook: "https://www.facebook.com/sameer_bags_pune",
+    instagram: "https://www.instagram.com/sameer_bags_pune",
+    youtube: "https://www.youtube.com/@sameer_bags_pune"
+    }
+    };
+    
+    let appData = JSON.parse(localStorage.getItem('sameerBagsData')) || defaultData;
+    
+    // Ensure all keys exist
+    if(!appData.products) appData.products = defaultData.products;
+    if(!appData.banner) appData.banner = defaultData.banner;
+    if(!appData.about) appData.about = defaultData.about;
+    if(!appData.contact) appData.contact = defaultData.contact;
+    if(!appData.contact.youtube) appData.contact.youtube = defaultData.contact.youtube;
+    
+    function saveData() {
+    localStorage.setItem('sameerBagsData', JSON.stringify(appData));
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+    loadWebsite();
+    });
+    
+    function loadWebsite() {
+    // Banner
+    document.getElementById('bannerSlider').innerHTML = `<img src="${appData.banner}" alt="Banner">`;
+    
+    // About
+    document.getElementById('aboutContent').innerHTML = appData.about;
+    
+    // Contact
+    document.getElementById('contactMobile').innerText = appData.contact.mobile;
+    document.getElementById('contactWhatsapp').innerText = appData.contact.mobile;
+    document.getElementById('contactEmail').innerText = appData.contact.email;
+    
+    // Social Links
+    document.getElementById('headerFacebook').href = appData.contact.facebook;
+    document.getElementById('headerInstagram').href = appData.contact.instagram;
+    document.getElementById('headerYoutube').href = appData.contact.youtube;
+    
+    // Products
+    renderProducts();
+    
+    // Admin Form Defaults
+    document.getElementById('editMobile').value = appData.contact.mobile;
+    document.getElementById('editWhatsapp').value = appData.contact.whatsapp;
+    document.getElementById('editEmail').value = appData.contact.email;
+    document.getElementById('editFacebook').value = appData.contact.facebook;
+    document.getElementById('editInstagram').value = appData.contact.instagram;
+    document.getElementById('editYoutube').value = appData.contact.youtube;
+    document.getElementById('aboutTextEdit').value = appData.about;
+    }
+    
+    function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    window.scrollTo(0, 0);
+    }
+    
+    // FIXED TAB SWITCHING
+    function showAdminTab(tabId, btnElement) {
+    // Hide all tab contents
+    document.querySelectorAll('.admin-tab-content').forEach(t => t.classList.remove('active'));
+    // Show selected
+    document.getElementById(tabId).classList.add('active');
+    
+    // Remove active from all buttons
+    document.querySelectorAll('.admin-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+    // Add active to clicked button
+    btnElement.classList.add('active');
+    }
+    function renderProducts(filter = 'All') {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = '';
+    
+    const filtered = filter === 'All' ? appData.products : appData.products.filter(p => p.category === filter);
+    
+    if(filtered.length === 0) {
+    grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:30px; color:#999;">No products found in this category.</p>';
+    return;
+    }
+    
+    filtered.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    
+    let mediaHTML = p.video 
+    ? `<video src="${p.video}" class="product-img" controls muted loop></video>` 
+    : `<img src="${p.image}" class="product-img" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">`;
+    
+    card.innerHTML = `
+    ${mediaHTML}
+    <div class="product-info">
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <span class="price">₹${p.price} / Piece</span>
+    <div style="display:flex; gap:8px;">
+    <button class="btn btn-whatsapp" style="font-size:0.8rem; padding:8px;" onclick="enquireProduct('${p.name}')"><i class="fab fa-whatsapp"></i> Enquiry</button>
+    <button class="btn btn-primary" style="font-size:0.8rem; padding:8px;" onclick="callNow()"><i class="fas fa-phone"></i> Call</button>
+    </div>
+    </div>
+    `;
+    grid.appendChild(card);
+    });
+    }
+    
+    function filterProducts() {
+    const cat = document.getElementById('categoryFilter').value;
+    renderProducts(cat);
+    }
+    
+    function enquireProduct(productName) {
+    const phone = appData.contact.whatsapp;
+    const msg = `Hi Sameer Bags, I am interested in *${productName}*. Please share details.`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+    
+    function callNow() {
+    window.location.href = `tel:${appData.contact.mobile}`;
+    }
+    
+    function submitEnquiry(e) {
+    e.preventDefault();
+    const name = document.getElementById('enqName').value;
+    const phone = document.getElementById('enqPhone').value;
+    const msg = document.getElementById('enqMsg').value;
+    
+    const text = `New Enquiry for Sameer Bags:%0A%0AName: ${name}%0APhone: ${phone}%0AMessage: ${msg}`;
+    window.open(`https://wa.me/${appData.contact.whatsapp}?text=${text}`, '_blank');
+    e.target.reset();
+    alert("Enquiry sent successfully! We will contact you soon.");
+    }
+    // --- ADMIN LOGIN ---
+    const ADMIN_PASS = "sameer123";
+    
+    function checkLogin() {
+        const pass = document.getElementById('adminPass').value;
+        if(pass === ADMIN_PASS) {
+            document.getElementById('loginView').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+            renderAdminList();
+            document.getElementById('loginError').style.display = 'none';
+        } else {
+            document.getElementById('loginError').style.display = 'block';
+        }
+    }
+    
+    function logout() {
+        document.getElementById('loginView').style.display = 'block';
+        document.getElementById('adminDashboard').style.display = 'none';
+        document.getElementById('adminPass').value = '';
+        document.getElementById('loginError').style.display = 'none';
+    }
+    
+    // --- PRODUCT MANAGEMENT ---
+    let currentImageBase64 = "";
+    let currentVideoBase64 = "";
+    
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('imgPreview').src = e.target.result;
+                document.getElementById('imgPreview').style.display = 'block';
+                currentImageBase64 = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    
+    function previewVideo(event) {
+        const file = event.target.files[0];
+        if(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('vidPreview').src = e.target.result;
+                document.getElementById('vidPreview').style.display = 'block';
+                currentVideoBase64 = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    
+    function saveProduct() {
+        const id = document.getElementById('editId').value;
+        const name = document.getElementById('pName').value;
+        const price = parseFloat(document.getElementById('pPrice').value);
+        const category = document.getElementById('pCategory').value;
+        const desc = document.getElementById('pDesc').value;
+    
+        if(!name || !price || !desc) return alert("Please fill all fields.");
+    
+        let finalImage = currentImageBase64;
+        let finalVideo = currentVideoBase64;
+    
+        if(id) {
+            const old = appData.products.find(p => p.id == id);
+            if(!finalImage) finalImage = old.image;
+            if(!finalVideo) finalVideo = old.video;
+            const index = appData.products.findIndex(p => p.id == id);
+            appData.products[index] = { id: parseInt(id), name, price, category, desc, image: finalImage, video: finalVideo };
+        } else {
+            if(!finalImage) return alert("Please upload a photo.");
+            const newId = appData.products.length > 0 ? Math.max(...appData.products.map(p => p.id)) + 1 : 1;
+            appData.products.push({ id: newId, name, price, category, desc, image: finalImage, video: finalVideo });
+        }
+    
+        saveData();
+        renderProducts();
+        renderAdminList();
+        resetProductForm();
+        alert("Product saved successfully!");
+    }
+    
+    function resetProductForm() {
+        document.getElementById('editId').value = '';
+        document.getElementById('pName').value = '';
+        document.getElementById('pPrice').value = '';
+        document.getElementById('pCategory').value = 'Non Woven';
+        document.getElementById('pDesc').value = '';
+        document.getElementById('pImageUpload').value = '';
+        document.getElementById('pVideoUpload').value = '';
+        document.getElementById('imgPreview').style.display = 'none';
+        document.getElementById('vidPreview').style.display = 'none';
+        currentImageBase64 = "";
+        currentVideoBase64 = "";
+    }
+    
+    function editProduct(id) {
+        const p = appData.products.find(prod => prod.id === id);
+        if(p) {
+            document.getElementById('editId').value = p.id;
+            document.getElementById('pName').value = p.name;
+            document.getElementById('pPrice').value = p.price;
+            document.getElementById('pCategory').value = p.category;
+            document.getElementById('pDesc').value = p.desc;
+            if(p.image) {
+                document.getElementById('imgPreview').src = p.image;
+                document.getElementById('imgPreview').style.display = 'block';
+                currentImageBase64 = p.image;
+            }
+            if(p.video) {
+                document.getElementById('vidPreview').src = p.video;
+                document.getElementById('vidPreview').style.display = 'block';
+                currentVideoBase64 = p.video;
+            }
+            window.scrollTo(0, 0);
+        }
+    }
+    
+    function deleteProduct(id) {
+        if(confirm("Delete this product?")) {
+            appData.products = appData.products.filter(p => p.id !== id);
+            saveData();
+            renderProducts();
+            renderAdminList();
+        }
+    }
+    
+    function renderAdminList() {
+        const list = document.getElementById('adminProductList');
+        list.innerHTML = '';
+        appData.products.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'admin-item';
+            div.innerHTML = `
+                <div><strong>${p.name}</strong> - ₹${p.price} (${p.category})</div>
+                <div class="admin-item-actions">
+                    <button class="btn btn-warning" onclick="editProduct(${p.id})">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteProduct(${p.id})">Delete</button>
+                </div>
+            `;
+            list.appendChild(div);
+        });
+    }
+    
+    // --- BANNER MANAGEMENT ---
+    let bannerBase64 = "";
+    
+    function previewBanner(event) {
+        const file = event.target.files[0];
+        if(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('bannerPreview').src = e.target.result;
+                document.getElementById('bannerPreview').style.display = 'block';
+                bannerBase64 = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    
+    function saveBanner() {
+        if(!bannerBase64) return alert("Please upload a banner first.");
+        appData.banner = bannerBase64;
+        saveData();
+        document.getElementById('bannerSlider').innerHTML = `<img src="${appData.banner}" alt="Banner">`;
+        alert("Banner updated successfully!");
+        bannerBase64 = "";
+    }
+    
+    // --- ABOUT US ---
+    function saveAbout() {
+        const text = document.getElementById('aboutTextEdit').value;
+        appData.about = text;
+        saveData();
+        document.getElementById('aboutContent').innerHTML = text;
+        alert("About Us updated successfully!");
+    }
+    
+    // --- CONTACT INFO ---
+    function saveContact() {
+        appData.contact.mobile = document.getElementById('editMobile').value;
+        appData.contact.whatsapp = document.getElementById('editWhatsapp').value;
+        appData.contact.email = document.getElementById('editEmail').value;
+        appData.contact.facebook = document.getElementById('editFacebook').value;
+        appData.contact.instagram = document.getElementById('editInstagram').value;
+        appData.contact.youtube = document.getElementById('editYoutube').value;
+        saveData();
+        
+        // Update website
+        document.getElementById('contactMobile').innerText = appData.contact.mobile;
+        document.getElementById('contactWhatsapp').innerText = appData.contact.mobile;
+        document.getElementById('contactEmail').innerText = appData.contact.email;
+        document.getElementById('headerFacebook').href = appData.contact.facebook;
+        document.getElementById('headerInstagram').href = appData.contact.instagram;
+        document.getElementById('headerYoutube').href = appData.contact.youtube;
+        
+        alert("Contact Info updated successfully!");
+    }
+    
+    // --- BACKUP & RESTORE ---
+    function backupData() {
+        const dataStr = JSON.stringify(appData, null, 2);
+        const blob = new Blob([dataStr], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = "sameer_bags_backup_" + new Date().toISOString().slice(0,10) + ".json";
+        a.click();
+        URL.revokeObjectURL(url);
+        alert("Backup downloaded successfully!");
+    }
+    
+    function restoreData() {
+        const fileInput = document.getElementById('restoreFile');
+        const file = fileInput.files[0];
+        if(!file) return alert("Please select a backup file first.");
+    
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const data = JSON.parse(e.target.result);
+                if(confirm("This will replace all current data. Continue?")) {
+                    appData = data;
+                    saveData();
+                    loadWebsite();
+                    renderAdminList();
+                    alert("Data restored successfully!");
+                }
+            } catch(err) {
+                alert("Invalid backup file. Please try again.");
+            }
+        };
+        reader.readAsText(file);
+    }
+    
+    function clearAllData() {
+        if(confirm("WARNING: This will delete ALL products and settings permanently. Are you sure?")) {
+            if(confirm("This action cannot be undone. Confirm once more?")) {
+                localStorage.removeItem('sameerBagsData');
+                appData = JSON.parse(JSON.stringify(defaultData));
+                saveData();
+                loadWebsite();
+                renderAdminList();
+                alert("All data cleared and reset to default.");
+            }
+        }
+    }
+        </script>
+    </body>
+    </html>
+    8" class="empty">No suppliers added.</td></tr>';
+  
+  /* Chart */
+  if(supplierChartInstance)supplierChartInstance.destroy();
+  let ctx=$('supplierChart');
+  if(ctx){
+  supplierChartInstance=new Chart(ctx.getContext('2d'),{
+  type:'bar',
+  data:{
+  labels:r.map(x=>x.s.name),
+  datasets:[
+  {label:'Closed',data:r.map(x=>x.cl),backgroundColor:'#1b7a3d'},
+  {label:'Open',data:r.map(x=>x.op),backgroundColor:'#e67e22'}
+  ]
+  },
+  options:{
+  responsive:true,maintainAspectRatio:false,
+  plugins:{legend:{position:'bottom'}},
+  scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,ticks:{stepSize:1}}}
+  }
+  });
+  }
+  
+  /* Performance */
+  let act=r.filter(x=>x.a.length);
+  let bad=[...act].sort((a,b)=>b.a.length-a.a.length)[0];
+  let low=[...act].sort((a,b)=>a.a.length-b.a.length)[0];
+  let best=[...act].sort((a,b)=>b.closure-a.closure||a.a.length-b.a.length)[0];
+  let mostRep=[...act].sort((a,b)=>b.rep-a.rep)[0];
+  $('perf').innerHTML=act.length
+  ? `<div class="notice">🔴 <b>Highest Concern Supplier:</b> ${esc(bad.s.name)} — ${bad.a.length} concern(s)</div>
+  <div class="notice">🟢 <b>Lowest Concern Supplier:</b> ${esc(low.s.name)} — ${low.a.length} concern(s)</div>
+  <div class="notice">⭐ <b>Best Closure Performance:</b> ${esc(best.s.name)} — ${best.closure}% closed</div>
+  ${mostRep.rep>0?`<div class="notice">🔁 <b>Most Repeated Concerns:</b> ${esc(mostRep.s.name)} — ${mostRep.rep} repeated</div>`:''}`
+  : '<div class="empty">No concern data yet.</div>';
+  }
+  
+  /* ---------- PART RENDER (SPLIT CARDS) + CHART ---------- */
+  function partRender(filtered){
+  let r=db.parts.map(p=>{
+  let a=filtered.filter(x=>x.part==p.id);
+  let cl=a.filter(x=>x.status==='Closed').length;
+  let op=a.filter(x=>x.status==='Open').length;
+  let dim=a.filter(x=>x.dimType==='Dimensional').length;
+  let nondim=a.filter(x=>x.dimType==='Non-Dimensional').length;
+  let rep=a.filter(x=>x.repeated==='Yes').length;
+  return {p,a,cl,op,dim,nondim,rep};
+  }).sort((a,b)=>b.a.length-a.a.length);
+  
+  let html='';
+  if(!r.length){
+  html='<div class="empty">No parts added yet.</div>';
+  }else{
+  html='<div class="split-grid">';
+  r.forEach(x=>{
+  let pct=x.a.length?Math.round(x.cl/x.a.length*100):0;
+  html+=`<div style="background:#f9fbfd;border:1px solid #e3e9f0;border-radius:12px;padding:16px;cursor:pointer;transition:all .2s" onclick="partDetail(${x.p.id})" onmouseover="this.style.boxShadow='0 6px 20px #1769aa22';this.style.borderColor='#1769aa55'" onmouseout="this.style.boxShadow='';this.style.borderColor='#e3e9f0'">
+  <div style="font-weight:700;font-size:14px;color:#1a4a7a;margin-bottom:4px">${esc(x.p.name)}</div>
+  <div class="hint" style="margin-bottom:10px">${esc(supplierName(x.p.supplier))}</div>
+  <div style="display:flex;gap:6px;font-size:12px;margin-bottom:10px;flex-wrap:wrap">
+  <span class="tag">Total ${x.a.length}</span>
+  <span class="tag" style="background:#d4edda;color:#146b37">Closed ${x.cl}</span>
+  <span class="tag" style="background:#fff3cd;color:#8a6200">Open ${x.op}</span>
+  </div>
+  <div style="display:flex;gap:6px;font-size:11px;margin-bottom:10px;flex-wrap:wrap">
+  <span class="badge badge-dim">📐 ${x.dim}</span>
+  <span class="badge badge-nondim">🎨 ${x.nondim}</span>
+  <span class="badge badge-rep">🔁 ${x.rep}</span>
+  </div>
+  <div style="height:8px;background:#e8edf4;border-radius:5px;overflow:hidden">
+  <div style="height:100%;width:${pct}%;background:${pct>=80?'#1b7a3d':pct>=50?'#e67e22':'#c62828'};border-radius:5px;transition:width .6s"></div>
+  </div>
+  <div class="hint" style="text-align:right;margin-top:6px;font-weight:600">${pct}% closed</div>
+  </div>`;
+  });
+  html+='</div>';
+  }
+  $('partSplitContainer').innerHTML=html;
+  
+  /* Part Chart */
+  if(partChartInstance)partChartInstance.destroy();
+  let ctx=$('partChart');
+  if(ctx){
+  partChartInstance=new Chart(ctx.getContext('2d'),{
+  type:'bar',
+  data:{
+  labels:r.map(x=>x.p.name),
+  datasets:[
+  {label:'Closed',data:r.map(x=>x.cl),backgroundColor:'#1b7a3d'},
+  {label:'Open',data:r.map(x=>x.op),backgroundColor:'#e67e22'}
+  ]
+  },
+  options:{
+  responsive:true,maintainAspectRatio:false,
+  plugins:{legend:{position:'bottom'}},
+  scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,ticks:{stepSize:1}}}
+  }
+  });
+  }
+  }
+  
+  /* ---------- REPORT TAB — SUPPLIER LIST ---------- */
+  function reportSupplierRender(){
+  let html=db.suppliers.length
+  ? db.suppliers.map(s=>{
+  let a=db.concerns.filter(x=>x.supplier==s.id);
+  let op=a.filter(x=>x.status==='Open').length;
+  let rep=a.filter(x=>x.repeated==='Yes').length;
+  return `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border:1px solid #e8edf4;border-radius:10px;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+  <div>
+  <b>${esc(s.name)}</b>
+  <div class="hint">${a.length} concerns · ${op} open · ${rep} repeated</div>
+  </div>
+  <div class="actions">
+  <button class="sm" onclick="shareSupplierEmail(${s.id})">📧 Email Excel</button>
+  <button class="sm wa-btn" onclick="shareSupplierWhatsApp(${s.id})">💬 WhatsApp</button>
+  </div>
+  </div>`;
+  }).join('')
+  : '<div class="empty">No suppliers added yet.</div>';
+  $('reportSupplierList').innerHTML=html;
+  }
+  </script>
+  <!-- ============================================================
+  PART 14 : JAVASCRIPT — DETAIL POPUPS + EXCEL EXPORT
+  ============================================================ -->
+  <script>
+  /* ---------- SUPPLIER DETAIL POPUP ---------- */
+  function supplierDetail(id){
+  let s=db.suppliers.find(x=>x.id==id);if(!s)return;
+  let a=db.concerns.filter(x=>x.supplier==id).sort((x,y)=>y.date.localeCompare(x.date));
+  let cl=a.filter(x=>x.status==='Closed').length;
+  let op=a.filter(x=>x.status==='Open').length;
+  let rep=a.filter(x=>x.repeated==='Yes').length;
+  let dim=a.filter(x=>x.dimType==='Dimensional').length;
+  let nondim=a.filter(x=>x.dimType==='Non-Dimensional').length;
+  let groups={};a.forEach(x=>(groups[x.part]??=[]).push(x));
+  
+  $('mb').innerHTML=`
+  <h2 style="margin:0 0 6px">${esc(s.name)}</h2>
+  <p class="hint" style="margin:0 0 14px">
+  ${s.contact?`📞 <a href="tel:${esc(s.contact)}">${esc(s.contact)}</a>`:'No contact'}
+  ${s.email?' · 📧 '+esc(s.email):''}
+  </p>
+  
+  <div class="mini-stat">
+  <div class="mini-item"><span>Total</span><b>${a.length}</b></div>
+  <div class="mini-item"><span>Open</span><b style="color:#c62828">${op}</b></div>
+  <div class="mini-item"><span>Closed</span><b style="color:#1b7a3d">${cl}</b></div>
+  <div class="mini-item"><span>Closure %</span><b>${a.length?Math.round(cl/a.length*100):0}%</b></div>
+  </div>
+  <div class="mini-stat">
+  <div class="mini-item"><span>Repeated</span><b style="color:#991b1b">${rep}</b></div>
+  <div class="mini-item"><span>Dimensional</span><b style="color:#1e40af">${dim}</b></div>
+  <div class="mini-item"><span>Non-Dimensional</span><b style="color:#6b21a8">${nondim}</b></div>
+  <div class="mini-item"><span>Parts</span><b>${Object.keys(groups).length}</b></div>
+  </div>
+  
+  <div class="actions" style="margin-bottom:16px">
+  ${s.contact?`<a href="tel:${esc(s.contact)}"><button class="call-btn">📞 Call</button></a>
+  <a href="sms:${esc(s.contact)}"><button class="secondary">💬 SMS</button></a>`:''}
+  ${s.email?`<button class="mail-btn" onclick="shareSupplierEmail(${s.id})">📧 Mail + Excel</button>`:''}
+  <button class="wa-btn" onclick="shareSupplierWhatsApp(${s.id})">💬 WhatsApp Action Plan</button>
+  <button class="danger" onclick="if(confirm('Delete this supplier?')){deleteSupplier(${s.id});closeM();}">🗑 Delete</button>
+  </div>
+  
+  <h3 style="font-size:13px;color:#1a4a7a;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.4px">Part-wise Breakdown</h3>
+  ${Object.keys(groups).length
+  ? Object.keys(groups).map(pid=>{
+  let arr=groups[pid];
+  let c=arr.filter(x=>x.status==='Closed').length;
+  let o=arr.filter(x=>x.status==='Open').length;
+  return `<div class="notice"><b>${esc(partName(pid))}</b> — Total ${arr.length}, Closed ${c}, Open ${o}</div>`;
+  }).join('')
+  : '<div class="empty" style="padding:14px">No part-wise data.</div>'}
+  
+  <h3 style="font-size:13px;color:#1a4a7a;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.4px">Concern Details</h3>
+  <div class="scroll" style="max-height:300px">
+  <table>
+  <thead><tr><th>Date</th><th>Part</th><th>Concern</th><th>Type</th><th>Status</th></tr></thead>
+  <tbody>
+  ${a.length?a.map(x=>`<tr>
+  <td>${esc(x.date)}</td>
+  <td>${esc(partName(x.part))}</td>
+  <td><b>${esc(x.title)}</b>${x.details?`<div class="hint">🔧 ${esc(x.details)}</div>`:''}</td>
+  <td>${dimBadge(x.dimType)}${x.repeated==='Yes'?'<br>'+repeatedBadge('Yes'):''}</td>
+  <td><span class="badge ${x.status}">${x.status}</span></td>
+  </tr>`).join(''):'<tr><td colspan="5" class="empty">No concerns.</td></tr>'}
+  </tbody>
+  </table>
+  </div>
+  `;
+  $('modal').style.display='block';
+  }
+  
+  /* ---------- PART DETAIL POPUP ---------- */
+  function partDetail(id){
+  let p=db.parts.find(x=>x.id==id);if(!p)return;
+  let a=db.concerns.filter(x=>x.part==id).sort((x,y)=>y.date.localeCompare(x.date));
+  let cl=a.filter(x=>x.status==='Closed').length;
+  let op=a.filter(x=>x.status==='Open').length;
+  let rep=a.filter(x=>x.repeated==='Yes').length;
+  let dim=a.filter(x=>x.dimType==='Dimensional').length;
+  let nondim=a.filter(x=>x.dimType==='Non-Dimensional').length;
+  let suppliers=[...new Set(a.map(x=>x.supplier))];
+  
+  $('mb').innerHTML=`
+  <h2 style="margin:0 0 6px">${esc(p.name)}</h2>
+  <p class="hint" style="margin:0 0 14px">
+  <b>Assigned Supplier:</b> ${esc(supplierName(p.supplier))}
+  ${p.desc?' · '+esc(p.desc):''}
+  </p>
+  
+  <div class="mini-stat">
+  <div class="mini-item"><span>Total</span><b>${a.length}</b></div>
+  <div class="mini-item"><span>Open</span><b style="color:#c62828">${op}</b></div>
+  <div class="mini-item"><span>Closed</span><b style="color:#1b7a3d">${cl}</b></div>
+  <div class="mini-item"><span>Repeated</span><b style="color:#991b1b">${rep}</b></div>
+  </div>
+  <div class="mini-stat">
+  <div class="mini-item"><span>Dimensional</span><b style="color:#1e40af">${dim}</b></div>
+  <div class="mini-item"><span>Non-Dimensional</span><b style="color:#6b21a8">${nondim}</b></div>
+  <div class="mini-item"><span>Suppliers</span><b>${suppliers.length}</b></div>
+  <div class="mini-item"><span>Closure %</span><b>${a.length?Math.round(cl/a.length*100):0}%</b></div>
+  </div>
+  
+  <h3 style="font-size:13px;color:#1a4a7a;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.4px">Supplier-wise</h3>
+  ${suppliers.length
+  ? suppliers.map(sid=>{
+  let arr=a.filter(x=>x.supplier==sid);
+  let c=arr.filter(x=>x.status==='Closed').length;
+  let o=arr.filter(x=>x.status==='Open').length;
+  let cont=supplierContact(sid);
+  return `<div class="notice"><b>${esc(supplierName(sid))}</b> — Total ${arr.length}, Closed ${c}, Open ${o} ${cont?`· 📞 <a href="tel:${esc(cont)}">${esc(cont)}</a>`:''}</div>`;
+  }).join('')
+  : '<div class="empty" style="padding:14px">No supplier data.</div>'}
+  
+  <h3 style="font-size:13px;color:#1a4a7a;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.4px">Concern Details</h3>
+  <div class="scroll" style="max-height:300px">
+  <table>
+  <thead><tr><th>Date</th><th>Supplier</th><th>Concern</th><th>Type</th><th>Status</th></tr></thead>
+  <tbody>
+  ${a.length?a.map(x=>`<tr>
+  <td>${esc(x.date)}</td>
+  <td>${esc(supplierName(x.supplier))}</td>
+  <td><b>${esc(x.title)}</b>${x.details?`<div class="hint">🔧 ${esc(x.details)}</div>`:''}</td>
+  <td>${dimBadge(x.dimType)}${x.repeated==='Yes'?'<br>'+repeatedBadge('Yes'):''}</td>
+  <td><span class="badge ${x.status}">${x.status}</span></td>
+  </tr>`).join(''):'<tr><td colspan="5" class="empty">No concerns.</td></tr>'}
+  </tbody>
+  </table>
+  </div>
+  `;
+  $('modal').style.display='block';
+  }
+  
+  function closeM(){$('modal').style.display='none'}
+  window.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+  $('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM();});
+  
+  /* ---------- EXPORT EXCEL ---------- */
+  function openExport(){
+  document.querySelector('.tabs button:nth-child(5)').click();
+  let dates=(db.concerns||[]).map(x=>x.date).filter(Boolean).sort();
+  $('exportFrom').value=dates[0]||new Date().toISOString().slice(0,10);
+  $('exportTo').value=new Date().toISOString().slice(0,10);
+  }
+  function setExportAll(){
+  let dates=(db.concerns||[]).map(x=>x.date).filter(Boolean).sort();
+  $('exportFrom').value=dates[0]||'';
+  $('exportTo').value=dates[dates.length-1]||new Date().toISOString().slice(0,10);
+  }
+  function getDateFilteredConcerns(){
+  let from=$('exportFrom').value, to=$('exportTo').value;
+  if(!from||!to)return alert('Please select From Date and To Date.');
+  if(from>to)return alert('From Date must be less than or equal to To Date.');
+  return db.concerns.filter(x=>x.date>=from && x.date<=to);
+  }
+  function exportExcel(){
+  let data=getDateFilteredConcerns(); if(!data)return;
+  let from=$('exportFrom').value, to=$('exportTo').value;
+  
+  let supplierRows=db.suppliers.map(s=>{
+  let a=data.filter(x=>x.supplier==s.id);
+  let cl=a.filter(x=>x.status==='Closed').length, op=a.filter(x=>x.status==='Open').length;
+  let rep=a.filter(x=>x.repeated==='Yes').length;
+  let dim=a.filter(x=>x.dimType==='Dimensional').length;
+  let nondim=a.filter(x=>x.dimType==='Non-Dimensional').length;
+  return {'Supplier':s.name,'Contact':s.contact||'','Email':s.email||'',
+  'Parts':new Set(a.map(x=>x.part)).size,'Total Concerns':a.length,
+  'Closed':cl,'Open':op,'Closure %':a.length?Math.round(cl/a.length*100):0,
+  'Repeated':rep,'Dimensional':dim,'Non-Dimensional':nondim};
+  });
+  let concernRows=data.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(x=>({
+  'Date':x.date,'Supplier':supplierName(x.supplier),'Part':partName(x.part),
+  'Concern':x.title,'Type':x.dimType||'','Repeated':x.repeated||'',
+  'Root Cause / Action / Remark':x.details||'','Status':x.status
+  }));
+  let supplierDetailRows=[];
+  db.suppliers.forEach(s=>{
+  data.filter(x=>x.supplier==s.id).sort((a,b)=>a.date.localeCompare(b.date)).forEach(x=>{
+  supplierDetailRows.push({
+  'Supplier':s.name,'Contact':s.contact||'','Email':s.email||'',
+  'Date':x.date,'Part':partName(x.part),'Concern':x.title,
+  'Type':x.dimType||'','Repeated':x.repeated||'',
+  'Root Cause / Action / Remark':x.details||'','Status':x.status
+  });
+  });
+  });
+  let partRows=db.parts.map(p=>{
+  let a=data.filter(x=>x.part==p.id),cl=a.filter(x=>x.status==='Closed').length;
+  let rep=a.filter(x=>x.repeated==='Yes').length;
+  let dim=a.filter(x=>x.dimType==='Dimensional').length;
+  let nondim=a.filter(x=>x.dimType==='Non-Dimensional').length;
+  return {'Part':p.name,'Supplier':supplierName(p.supplier),'Description':p.desc||'',
+  'Total Concerns':a.length,'Closed':cl,'Open':a.filter(x=>x.status==='Open').length,
+  'Repeated':rep,'Dimensional':dim,'Non-Dimensional':nondim};
+  });
+  let summary=[{
+  'Report':'Supplier Concern Management','From Date':from,'To Date':to,
+  'Total Concerns':data.length,'Open':data.filter(x=>x.status==='Open').length,
+  'Closed':data.filter(x=>x.status==='Closed').length,
+  'Repeated Concerns':data.filter(x=>x.repeated==='Yes').length,
+  'Dimensional':data.filter(x=>x.dimType==='Dimensional').length,
+  'Non-Dimensional':data.filter(x=>x.dimType==='Non-Dimensional').length,
+  'Suppliers':new Set(data.map(x=>x.supplier)).size,
+  'Parts':new Set(data.map(x=>x.part)).size,
+  'Generated On':new Date().toLocaleString('en-IN')
+  }];
+  
+  let wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(summary),'Report Summary');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(supplierRows),'Supplier Wise Summary');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(supplierDetailRows),'Supplier Concern Details');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(concernRows),'All Concern Details');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(partRows),'Part Wise');
+  ['Report Summary','Supplier Wise Summary','Supplier Concern Details','All Concern Details','Part Wise'].forEach(n=>{
+  let ws=wb.Sheets[n];
+  let range=XLSX.utils.decode_range(ws['!ref']||'A1');
+  ws['!cols']=Array(range.e.c+1).fill({wch:20});
+  });
+  XLSX.writeFile(wb,`Supplier_Concern_Report_${from}_to_${to}.xlsx`);
+  }
+  </script>
+  <!-- ============================================================
+  PART 15 : WHATSAPP + EMAIL + BACKUP + INIT
+  ============================================================ -->
+  <script>
+  /* ---------- WHATSAPP SHARE ---------- */
+  function whatsappOpen(text, phone){
+  let url='https://wa.me/'+(phone||'')+'?text='+encodeURIComponent(text);
+  window.open(url,'_blank');
+  }
+  
+  function shareSupplierWhatsApp(id){
+  let s=db.suppliers.find(x=>x.id==id); if(!s)return;
+  let openConcerns=db.concerns.filter(x=>x.supplier==id && x.status==='Open').sort((a,b)=>b.date.localeCompare(a.date));
+  
+  if(!openConcerns.length){
+  if(!confirm('This supplier has no Open concerns. Still open WhatsApp?'))return;
+  }
+  
+  let lines=openConcerns.length
+  ? openConcerns.map((x,i)=>`${i+1}. ${x.date} | ${partName(x.part)} | ${x.title} | Type: ${x.dimType||'-'} | Repeated: ${x.repeated||'-'}`).join('\n')
+  : 'No open concerns.';
+  
+  let text=`*Supplier Concern Notification*\n\nDear ${s.name},\n\nPlease find below our open concerns requiring your immediate attention:\n\n${lines}\n\n*Action Required:*\nKindly submit your Action Plan & ICA (Immediate Corrective Action) for the above concerns at the earliest.\n\n*Please include:*\n• Root Cause\n• Corrective Action\n• Preventive Action\n• Target Closure Date\n• Supporting evidence (photos/documents)\n\nRequest you to acknowledge and revert with the action plan.\n\nRegards,\nAmin Sayyad\nSupplier Quality Team`;
+  
+  let phone=(s.contact||'').replace(/\D/g,'');
+  if(phone.length===10)phone='91'+phone;
+  whatsappOpen(text,phone);
+  }
+  
+  function shareAllWhatsApp(){
+  let a=db.concerns||[];
+  let openList=a.filter(x=>x.status==='Open');
+  let by={};
+  openList.forEach(x=>{by[x.supplier]??=[];by[x.supplier].push(x)});
+  
+  let summaryLines=Object.keys(by).map(sid=>{
+  let arr=by[sid];
+  return `• ${supplierName(sid)} — ${arr.length} open`;
+  });
+  
+  let detailLines=[];
+  Object.keys(by).forEach(sid=>{
+  let arr=by[sid].slice().sort((x,y)=>y.date.localeCompare(x.date));
+  detailLines.push(`\n*${supplierName(sid)}*`);
+  arr.forEach((x,i)=>{
+  detailLines.push(`${i+1}. ${x.date} | ${partName(x.part)} | ${x.title} | Type: ${x.dimType||'-'} | Repeated: ${x.repeated||'-'}`);
+  });
+  });
+  
+  let repCount=a.filter(x=>x.repeated==='Yes').length;
+  let dimCount=a.filter(x=>x.dimType==='Dimensional').length;
+  let nondimCount=a.filter(x=>x.dimType==='Non-Dimensional').length;
+  
+  let text=`*Supplier Concern Summary*\n\nTotal Concerns: ${a.length}\nOpen: ${openList.length}\nClosed: ${a.length-openList.length}\nRepeated: ${repCount}\nDimensional: ${dimCount}\nNon-Dimensional: ${nondimCount}\n\n*Supplier-wise Open:*\n${summaryLines.join('\n')}\n\n*Open Concern Details:*${detailLines.join('\n')}\n\n*Action Required:*\nPlease submit Action Plan & ICA for all open concerns.\n\n*Please include:*\n• Root Cause\n• Corrective Action\n• Preventive Action\n• Target Closure Date\n• Evidence (photos/documents)\n\nRegards,\nAmin Sayyad\nSupplier Quality Team`;
+  whatsappOpen(text,'');
+  }
+  
+  /* ---------- EMAIL SHARE (with Excel) ---------- */
+  function supplierExcelFile(id){
+  let s=db.suppliers.find(x=>x.id==id);
+  let data=db.concerns.filter(x=>x.supplier==id);
+  let rows=data.map(x=>({
+  'Date':x.date,'Supplier':s.name,'Part':partName(x.part),
+  'Concern':x.title,'Type':x.dimType||'','Repeated':x.repeated||'',
+  'Root Cause / Action / Remark':x.details||'','Status':x.status
+  }));
+  let summary=[{
+  'Supplier':s.name,'Contact':s.contact||'','Email':s.email||'',
+  'Total Concerns':data.length,
+  'Open':data.filter(x=>x.status==='Open').length,
+  'Closed':data.filter(x=>x.status==='Closed').length,
+  'Repeated':data.filter(x=>x.repeated==='Yes').length,
+  'Dimensional':data.filter(x=>x.dimType==='Dimensional').length,
+  'Non-Dimensional':data.filter(x=>x.dimType==='Non-Dimensional').length
+  }];
+  let wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(summary),'Supplier Summary');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rows),'Concern Details');
+  return XLSX.write(wb,{bookType:'xlsx',type:'array'});
+  }
+  
+  async function shareSupplierEmail(id){
+  let s=db.suppliers.find(x=>x.id==id); if(!s)return;
+  if(!s.email){alert('Supplier email is not saved. Please add it in Master tab.');return;}
+  let bytes=supplierExcelFile(id);
+  let blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  let file=new File([blob],`Supplier_Concern_${s.name.replace(/[^a-z0-9]+/gi,'_')}.xlsx`,{type:blob.type});
+  let subject=`Supplier Concern Notification - ${s.name}`;
+  let body=`Dear ${s.name},\n\nPlease find the attached supplier concern report.\n\nAction Required:\nKindly submit your Action Plan & ICA (Immediate Corrective Action) for all open concerns at the earliest.\n\nPlease include:\n- Root Cause\n- Corrective Action\n- Preventive Action\n- Target Closure Date\n- Supporting evidence (photos/documents)\n\nRequest you to acknowledge and revert with the action plan.\n\nRegards,\nAmin Sayyad\nSupplier Quality Team`;
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+  try{await navigator.share({title:subject,text:body,files:[file]});return;}catch(e){if(e.name==='AbortError')return;}
+  }
+  let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=file.name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  window.location.href=`mailto:${encodeURIComponent(s.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  alert('Excel downloaded. Email composer will open; if attachment does not auto-attach, please attach the downloaded Excel manually.');
+  }
+  
+  /* ---------- BACKUP / RESTORE ---------- */
+  function backup(){
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));
+  a.download='supplier-concern-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),500);
+  }
+  function restore(e){
+  let file=e.target.files[0];if(!file)return;
+  let r=new FileReader();
+  r.onload=()=>{
+  try{
+  let x=JSON.parse(r.result);
+  if(!x.suppliers||!x.parts||!x.concerns)throw 0;
+  if(!confirm('Importing will replace existing data. Continue?'))return;
+  db=x;
+  db.concerns=db.concerns.map(c=>({
+  ...c,
+  status:c.status==='Band'?'Closed':(c.status==='Closed'?'Closed':'Open'),
+  dimType:c.dimType||'Non-Dimensional',
+  repeated:c.repeated||'No'
+  }));
+  save();
+  alert('✅ Backup restored successfully.');
+  }catch(err){alert('❌ Invalid backup file.')}
+  };
+  r.readAsText(file);
+  e.target.value='';
+  }
+  function wipe(){
+  if(confirm('⚠️ Delete all suppliers, parts and concerns?\n\nThis cannot be undone!')){
+  if(confirm('Are you absolutely sure? Click OK to confirm.')){
+  db={suppliers:[],parts:[],concerns:[]};
+  save();
+  alert('All data cleared.');
+  }
+  }
+  }
+  
+  /* ---------- INITIAL RENDER ---------- */
+  toggleCloseSection();
+  render();
+  </script>
+  </body>
+  </html>lsx');
+  alert('Filtered data exported: '+rs.length+' records.');
+}
+</script>
+
+<!-- ==================== JAVASCRIPT: ADVANCED EXCEL EXPORTS ==================== -->
+<script>
+/* ============================================================
+   EXPORT SUPPLIER-WISE
+   ============================================================ */
+function exportSupplier(){
+  var rows=buildSupplierSummary();
+  if(rows.length===0){alert('No supplier data.');return;}
+  var totalInsp=0,totalRej=0,totalRecords=0;
+  rows.forEach(function(r){
+    totalInsp+=r['Inspection Qty'];
+    totalRej+=r['Rejection Qty'];
+    totalRecords+=r['Total Records'];
+  });
+  var totalRow=[{
+    'Supplier':'★ GRAND TOTAL ★',
+    'Total Records':totalRecords,
+    'Inspection Qty':totalInsp,
+    'Rejection Qty':totalRej,
+    'Rejection %':Number((totalInsp?totalRej/totalInsp*100:0).toFixed(3)),
+    'Overall PPM':Math.round(totalInsp?totalRej/totalInsp*1000000:0)
+  }];
+  var wb=XLSX.utils.book_new();
+  addSheet(wb,rows,'Supplier Analysis');
+  addSheet(wb,totalRow,'Grand Total');
+  downloadWB(wb,'Supplier_Analysis_'+today()+'.xlsx');
+  alert('Supplier-wise Excel exported.\n'+rows.length+' suppliers.');
+}
+
+/* ============================================================
+   EXPORT PART-WISE
+   ============================================================ */
+function exportPart(){
+  var rows=buildPartSummary();
+  if(rows.length===0){alert('No part data.');return;}
+  var totalInsp=0,totalRej=0;
+  rows.forEach(function(r){
+    totalInsp+=r['Inspection Qty'];
+    totalRej+=r['Rejection Qty'];
+  });
+  var totalRow=[{
+    'Part Name':'★ GRAND TOTAL ★',
+    'Inspection Qty':totalInsp,
+    'Rejection Qty':totalRej,
+    'Rejection %':Number((totalInsp?totalRej/totalInsp*100:0).toFixed(3)),
+    'Overall PPM':Math.round(totalInsp?totalRej/totalInsp*1000000:0)
+  }];
+  var wb=XLSX.utils.book_new();
+  addSheet(wb,rows,'Part Analysis');
+  addSheet(wb,totalRow,'Grand Total');
+  downloadWB(wb,'Part_Analysis_'+today()+'.xlsx');
+  alert('Part-wise Excel exported.\n'+rows.length+' parts.');
+}
+
+/* ============================================================
+   EXPORT DEFECT-WISE
+   ============================================================ */
+function exportDefect(){
+  var all=buildDefectSummary();
+  if(all.length===0){alert('No defect data.');return;}
+  var mach=all.filter(function(x){return x['Defect Category']==='Machining Defect';});
+  var cast=all.filter(function(x){return x['Defect Category']==='Casting Defect';});
+  var wb=XLSX.utils.book_new();
+  addSheet(wb,mach,'Machining Defects');
+  addSheet(wb,cast,'Casting Defects');
+  addSheet(wb,all,'All Defects');
+  downloadWB(wb,'Defect_Analysis_'+today()+'.xlsx');
+  alert('Defect-wise Excel exported.\nMachining: '+mach.length+' | Casting: '+cast.length+' | Total: '+all.length);
+}
+
+/* ============================================================
+   EXPORT PARETO
+   ============================================================ */
+function exportPareto(){
+  var s=$('prSup')?$('prSup').value:'';
+  var p=$('prPart')?$('prPart').value:'';
+  var f=$('prFrm')?$('prFrm').value:'';
+  var t=$('prTo')?$('prTo').value:'';
+  var rs=state.records.filter(function(r){
+    if(s&&r.supplier!==s)return false;
+    if(p&&r.part!==p)return false;
+    if(f&&r.date<f)return false;
+    if(t&&r.date>t)return false;
+    return true;
+  });
+  if(rs.length===0){alert('No Pareto data for selected filters.');return;}
+
+  function buildParetoSheet(catFilter){
+    var m={};
+    rs.filter(function(r){return r.defectCategory===catFilter;})
+      .forEach(function(r){
+        m[r.defectName]=(m[r.defectName]||0)+num(r.rejection);
+      });
+    var ent=Object.keys(m).map(function(k){return [k,m[k]];})
+      .sort(function(a,b){return b[1]-a[1];});
+    var total=ent.reduce(function(a,x){return a+x[1];},0);
+    var cum=0;
+    var rows=ent.map(function(e,idx){
+      cum+=e[1];
+      var contribPct=total?e[1]/total*100:0;
+      var cumPct=total?cum/total*100:0;
+      return {
+        'Rank':idx+1,
+        'Defect Name':e[0],
+        'Rejection Qty':e[1],
+        'Contribution %':Number(contribPct.toFixed(3)),
+        'Cumulative Rejection':cum,
+        'Cumulative %':Number(cumPct.toFixed(3)),
+        'Pareto Class':cumPct<=80?'Vital Few (80%)':'Trivial Many'
+      };
+    });
+    if(rows.length===0)rows=[{Message:'No '+catFilter+' data'}];
+    return rows;
+  }
+
+  var wb=XLSX.utils.book_new();
+  addSheet(wb,buildParetoSheet('Machining Defect'),'Machining Pareto');
+  addSheet(wb,buildParetoSheet('Casting Defect'),'Casting Pareto');
+
+  var infoRows=[
+    {'Filter':'Supplier','Value':s||'All'},
+    {'Filter':'Part','Value':p||'All'},
+    {'Filter':'From Date','Value':f||'—'},
+    {'Filter':'To Date','Value':t||'—'},
+    {'Filter':'Generated On','Value':today()},
+    {'Filter':'Prepared By','Value':'Amin Sayyad'}
+  ];
+  addSheet(wb,infoRows,'Filter Info');
+
+  downloadWB(wb,'Pareto_Analysis_'+today()+'.xlsx');
+  alert('Pareto Excel exported.\n3 sheets: Machining, Casting, Filter Info');
+}
+
+/* ============================================================
+   EXPORT PPM TREND
+   ============================================================ */
+function exportTrend(){
+  var s=$('trSup')?$('trSup').value:'';
+  var p=$('trPart')?$('trPart').value:'';
+  var f=$('trFrm')?$('trFrm').value:'';
+  var t=$('trTo')?$('trTo').value:'';
+  var per=$('trPer')?$('trPer').value:'daily';
+  var rs=state.records.filter(function(r){
+    if(s&&r.supplier!==s)return false;
+    if(p&&r.part!==p)return false;
+    if(f&&r.date<f)return false;
+    if(t&&r.date>t)return false;
+    return true;
+  });
+  if(rs.length===0){alert('No trend data for selected filters.');return;}
+
+  var g={};
+  rs.forEach(function(r){
+    var key;
+    if(per==='daily')key=r.date;
+    else if(per==='monthly')key=r.date.slice(0,7);
+    else key=r.date.slice(0,4);
+    if(!g[key]){
+      g[key]={insp:0,rej:0,machInsp:0,machRej:0,castInsp:0,castRej:0};
+    }
+    g[key].insp+=num(r.inspection);
+    g[key].rej+=num(r.rejection);
+    if(r.defectCategory==='Machining Defect'){
+      g[key].machInsp+=num(r.inspection);
+      g[key].machRej+=num(r.rejection);
+    }else{
+      g[key].castInsp+=num(r.inspection);
+      g[key].castRej+=num(r.rejection);
+    }
+  });
+
+  var tgt=500;
+  if(s)tgt=getTgt(s);
+  else if(state.suppliers.length){
+    var sum=0;
+    state.suppliers.forEach(function(x){sum+=x.target;});
+    tgt=Math.round(sum/state.suppliers.length);
+  }
+
+  var rows=Object.keys(g).sort().map(function(k){
+    var d=g[k];
+    var overallPPM=d.insp?d.rej/d.insp*1000000:0;
+    var machPPM=d.machInsp?d.machRej/d.machInsp*1000000:0;
+    var castPPM=d.castInsp?d.castRej/d.castInsp*1000000:0;
+    return {
+      'Period':k,
+      'Inspection Qty':d.insp,
+      'Rejection Qty':d.rej,
+      'Rejection %':Number((d.insp?d.rej/d.insp*100:0).toFixed(3)),
+      'Overall PPM':Math.round(overallPPM),
+      'Machining PPM':Math.round(machPPM),
+      'Casting PPM':Math.round(castPPM),
+      'PPM Target':tgt,
+      'Status':Math.round(overallPPM)<=tgt?'OK':'HIGH'
+    };
+  });
+
+  var wb=XLSX.utils.book_new();
+  addSheet(wb,rows,'PPM Trend');
+
+  var totalInsp=0,totalRej=0;
+  rows.forEach(function(r){
+    totalInsp+=r['Inspection Qty'];
+    totalRej+=r['Rejection Qty'];
+  });
+  var summaryRows=[{
+    'Period Type':per.charAt(0).toUpperCase()+per.slice(1),
+    'Total Periods':rows.length,
+    'Total Inspection':totalInsp,
+    'Total Rejection':totalRej,
+    'Average PPM':Math.round(totalInsp?totalRej/totalInsp*1000000:0),
+    'PPM Target':tgt,
+    'Generated On':today()
+  }];
+  addSheet(wb,summaryRows,'Summary');
+
+  downloadWB(wb,'PPM_Trend_'+per+'_'+today()+'.xlsx');
+  alert('PPM Trend Excel exported.\nPeriod: '+per+' | '+rows.length+' periods');
+}
+</script>
+
+<!-- ==================== JAVASCRIPT: REPORT + BACKUP + INIT ==================== -->
+<script>
+/* ============================================================
+   REPORT FUNCTIONS
+   ============================================================ */
+function repData(){
+  var s=$('rpSup').value;
+  var p=$('rpPart').value;
+  var f=$('rpFrm').value;
+  var t=$('rpTo').value;
+  return state.records.filter(function(r){
+    if(s&&r.supplier!==s)return false;
+    if(p&&r.part!==p)return false;
+    if(f&&r.date<f)return false;
+    if(t&&r.date>t)return false;
+    return true;
+  });
+}
+
+function reportExcel(){
+  var rs=repData();
+  if(!rs.length){alert('No data for selected filters');return;}
+  var rows=rs.map(function(r){
+    return {
+      'Date':r.date,
+      'Supplier':r.supplier,
+      'Part':r.part,
+      'Received Qty':r.received,
+      'Inspection Qty':r.inspection,
+      'Defect Category':r.defectCategory,
+      'Defect Name':r.defectName,
+      'Rejection Qty':r.rejection,
+      'Rejection %':Number((r.inspection?r.rejection/r.inspection*100:0).toFixed(3)),
+      'PPM':Math.round(r.inspection?r.rejection/r.inspection*1000000:0)
+    };
+  });
+  var wb=XLSX.utils.book_new();
+  addSheet(wb,rows,'Report');
+  downloadWB(wb,'Report_'+today()+'.xlsx');
+  $('rpSum').textContent='Report generated: '+rs.length+' records.';
+}
+
+function reportWhatsApp(){
+  var rs=repData();
+  if(!rs.length){alert('No data for selected filters');return;}
+  var ti=0,tr=0;
+  rs.forEach(function(r){ti+=num(r.inspection);tr+=num(r.rejection);});
+  var msg='*Supplier PPM Report*\n\n';
+  msg+='Supplier: '+($('rpSup').value||'All')+'\n';
+  msg+='Part: '+($('rpPart').value||'All')+'\n';
+  msg+='From: '+($('rpFrm').value||'—')+'\n';
+  msg+='To: '+($('rpTo').value||'—')+'\n\n';
+  msg+='Inspected: '+ti+'\n';
+  msg+='Rejected: '+tr+'\n';
+  msg+='Rej%: '+(ti?tr/ti*100:0).toFixed(2)+'%\n';
+  msg+='PPM: '+Math.round(ti?tr/ti*1000000:0)+'\n\n';
+  msg+='_Prepared by Amin Sayyad_';
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+  $('rpSum').textContent='WhatsApp share opened.';
+}
+
+function reportEmail(){
+  var rs=repData();
+  if(!rs.length){alert('No data for selected filters');return;}
+  var ti=0,tr=0;
+  rs.forEach(function(r){ti+=num(r.inspection);tr+=num(r.rejection);});
+  var sub='Supplier PPM Report';
+  var body='Supplier: '+($('rpSup').value||'All')+'\n';
+  body+='Part: '+($('rpPart').value||'All')+'\n';
+  body+='From: '+($('rpFrm').value||'—')+'\n';
+  body+='To: '+($('rpTo').value||'—')+'\n\n';
+  body+='Inspected: '+ti+'\n';
+  body+='Rejected: '+tr+'\n';
+  body+='Rej%: '+(ti?tr/ti*100:0).toFixed(2)+'%\n';
+  body+='PPM: '+Math.round(ti?tr/ti*1000000:0)+'\n\n';
+  body+='Prepared by Amin Sayyad';
+  window.location.href='mailto:?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body);
+  $('rpSum').textContent='Email client opened.';
+}
+
+/* ============================================================
+   BACKUP FUNCTIONS
+   ============================================================ */
+function downloadBackup(){
+  var blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='Supplier_PPM_Backup_'+today()+'.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importBackup(e){
+  var f=e.target.files[0];
+  if(!f)return;
+  if(!confirm('Import this backup and replace current data?')){e.target.value='';return;}
+  var r=new FileReader();
+  r.onload=function(ev){
+    try{
+      var d=JSON.parse(ev.target.result);
+      if(d.suppliers&&d.parts&&d.records){
+        state={suppliers:d.suppliers,parts:d.parts,records:d.records};
+        save();
+        fillDD();
+        populateDashYears();
+        alert('Backup imported successfully!');
+      }else alert('Invalid backup file');
+    }catch(err){alert('Error reading file');}
+    e.target.value='';
+  };
+  r.readAsText(f);
+}
+
+function clearAllData(){
+  if(!confirm('Delete ALL data? This cannot be undone.'))return;
+  if(!confirm('Are you absolutely sure? All suppliers, parts, and records will be lost.'))return;
+  state={suppliers:[],parts:[],records:[]};
+  save();
+  fillDD();
+  populateDashYears();
+  alert('All data cleared.');
+}
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+window.addEventListener('load',function(){
+  load();
+  $('eDate').value=today();
+  fillDD();
+  populateDashYears();
+  updateDashInfo();
+  kpis();
+  renderDaily();
+  renderPart();
+  renderSup();
+  renderDef();
+  renderMaster();
+  renderDefList();
+  /* Show first tab */
+  var firstTab=document.querySelector('.tab.on');
+  if(firstTab)firstTab.click();
+  console.log('✅ Supplier PPM System loaded successfully.');
+  console.log('Total records:',state.records.length);
+  console.log('Total suppliers:',state.suppliers.length);
+  console.log('Total parts:',state.parts.length);
+});
+</script>
+</body>
+</html>
